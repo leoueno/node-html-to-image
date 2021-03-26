@@ -18,7 +18,7 @@ module.exports = async function(options) {
   const cluster = await Cluster.launch({
     concurrency: Cluster.CONCURRENCY_CONTEXT,
     maxConcurrency: 2,
-    puppeteerOptions: { ...puppeteerArgs, headless: true },
+    puppeteerOptions: { ...puppeteerArgs, headless: false, args: ['--no-sandbox', '--disable-setuid-sandbox'] },
   });
 
   let buffers = []
